@@ -1,0 +1,302 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* #root {
+  max-width: 1000px;
+  margin: auto;
+} */
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.row>div {
+  display: flex;
+  margin: 20px 20px;
+  max-width: 300px;
+}
+
+.media-object {
+  margin: 20px 20px;
+}
+
+.media-body {
+  margin: auto;
+}
+
+#nav-mobile {
+  display: flex;
+  list-style-type: none;
+}
+
+#nav-mobile>li {
+  margin: auto;
+  color: black;
+  font-size: 1.6rem;
+}
+
+#nav-mobile>li>a {
+  color: black;
+}
+
+#nav-mobile>li>a:hover {
+  color: #61dafb;
+}
+
+a, a:visited {
+  text-decoration: none;
+  transition: 1s;
+}
+
+a:hover {
+  color: #61dafb;
+}
+
+.brand-logo {
+  margin: 49%;
+}
+
+#footer {
+  /* background-color:rgb(22, 22, 22); */
+  /* width: 100%; */
+  background: linear-gradient(rgb(40, 44, 52), black);
+  display: flex;
+  padding-left: 40%;
+}
+
+#footer>ul {
+  margin: auto;
+  list-style-type: none;
+}
+
+#footer>ul>li {
+  margin: 20px;
+}
+
+#footer>ul>li>a {
+  color: white;
+  font-size: 1.2rem;
+}
+
+#footer>ul>li>a:hover {
+  color: #61dafb;
+}
+
+.navigation {
+  background-color: black;
+  width: 100%;
+}
+
+.navigation>ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin: auto;
+}
+
+.navigation>ul>li {
+  margin: auto;
+  /* margin: 0 25px; */
+  /* flex-basis: 200px; */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+html {
+  /* //styleName: Label / Medium Label; */
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#top-nav {
+  height: 50px;
+}
+
+#top-nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row-reverse;
+}
+
+#top-nav ul li {
+  margin: 25px;
+}
+
+#index {
+  /* background-image: url("imgs/index-bg.jpg"); */
+  min-height: 240px;
+  /* height: 100%; */
+  height: 800px;
+}
+
+#index h1 {
+  padding: 400px 0 0 100px;
+  color: white;
+}
+
+#feature {
+  padding: 15px 15%;
+}
+
+#feature-content {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 32px;
+  /* grid-template-rows: auto auto auto auto; */
+}
+
+#feature-content div {
+  border: 1px solid black;
+  align-items: center;
+}
+
+#portfolio {
+  background-color: rgb(22, 22, 22);
+  color: white;
+  padding: 50px;
+}
+
+#portfolioContent {
+  max-width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 32px;
+}
+
+#content {
+  max-width: 200px;
+}
+
+#portfolio>h1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.figure {
+  text-align: center;
+}
+
+figure img {
+  width: 300px;
+}
+
+.contentWrapper {
+  /* display: grid; */
+  /* grid-template-columns: auto auto auto auto; */
+  /* background-color: rgb(22, 22, 22); */
+  background-color: #282c34;
+  /* padding: 20px; */
+  /* margin: 20px; */
+}
+
+.contentBlock {
+  /* margin: 20px; */
+  background-color: #282c34;
+  color: white;
+  /* display: grid;
+  grid: 'img img img img'
+   'name name price price'
+    'buy buy buy buy'; */
+  /* max-width: 400px; */
+  /* padding: 20px; */
+  /* grid-gap: 10px; */
+  overflow: hidden;
+}
+
+.picture {
+  width: 250px;
+  height: 250px;
+  grid-area: img;
+  /* padding: 0 25%; */
+}
+
+.productName {
+  float: left;
+  grid-area: name;
+}
+
+.productPrice {
+  float: right;
+  grid-area: price;
+}
+
+.productBuy {
+  grid-area: buy;
+  /* background-color: red; */
+  max-width: 200px;
+  margin: auto;
+}
+
+.contentBlock li {
+  /* margin: auto; */
+  list-style-type: none;
+}
+
+.paper {
+  text-align: 'center';
+  background-color: inherit;
+  padding: 20px;
+}
+
+.container{
+  background-color: rgb(40, 44, 52);
+}
+
+.row{
+  background-color: white;
+}
