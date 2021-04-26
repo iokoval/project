@@ -12,7 +12,7 @@ export class MainPage extends React.Component {
                                 <img src="https://printelit.ru/content/images/new-elements/advantage/pay.png" alt="Расчет по карте" />
                             </div>
                         </div>
-                        <div class="media-body">
+                        <div className="media-body">
                             <p>Наличный и безналичный расчет по карте</p>
                         </div>
                     </div>

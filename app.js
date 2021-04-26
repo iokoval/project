@@ -10,7 +10,7 @@ const product = require('./product.model');
 const order = require('./order.model')
 
 const app = express()
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(cors())
 app.use(express.json({ extended: true }))
 

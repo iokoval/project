@@ -113,8 +113,8 @@ export default function FormDialog() {
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='body' fullWidth={true} maxWidth={'sm'}>
         <DialogTitle id="form-dialog-title">Ваш заказ</DialogTitle>
         <DialogContent>
-          {items.map((item) => (
-            <Grid item className='contentBlock' style={{ width: '100%', backgroundColor: 'white' }}>
+          {items.map((item, i) => (
+            <Grid key={i} item className='contentBlock' style={{ width: '100%', backgroundColor: 'white' }}>
               <Paper className="paper" style={{ display: "flex" }}>
                 <li><img src={'/imgs/' + item.picture + '.jpg'} alt={item.name + ' picture'} className="picture" style={{ width: '100px', height: '100px', margin: 'auto' }} /></li>
                 <li className="productName" style={{ margin: 'auto' }}>{item.name}</li>
@@ -126,7 +126,7 @@ export default function FormDialog() {
           ))}
           <Typography style={{ float: 'right' }}><b>Сумма {price} грн.</b></Typography>
         </DialogContent>
-        <Button onClick={handleSubmit} variant="contained" style={{ width: '100%', backgroundColor: 'green', margin: '10px 0' }} color="primary">Оформить</Button>
+        <Button onClick={handleSubmit} variant="contained" style={{ width: '100%', backgroundColor: 'green', margin: '10px 0 0' }} color="primary">Оформить</Button>
       </Dialog>
     </div>
   );

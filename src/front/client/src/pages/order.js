@@ -3,7 +3,7 @@ import '../App.css';
 import api from '../api';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { Button, FormControl, InputLabel, Select } from '@material-ui/core';
+import { Button, FormControl, InputLabel, Select, Dialog, DialogTitle, DialogContent, Typography } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import $ from 'jquery';
 
@@ -27,6 +27,7 @@ export function Order() {
     const [price, setPrice] = useState(0);
     const [shippingAddress, setShippingAddress] = useState();
     const [update, setUpdate] = useState();
+    const [complete, setComplete] = useState(false);
 
     let addresses = ["1", 2];
 
@@ -76,6 +77,11 @@ export function Order() {
         await loadMap();
     }
 
+    const handleClose = () => {
+        setComplete(false);
+        window.location.href = '/';
+    }
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormValues({
@@ -91,6 +97,8 @@ export function Order() {
         console.log(formValues);
         await api.insertOrder(formValues).then(
             localStorage.removeItem('podarok-print-en')
+        ).then(
+            setComplete(true)
         );
     }
 
@@ -105,9 +113,9 @@ export function Order() {
 
     return (
         <div style={{ backgroundColor: 'whitesmoke' }}>
-            <form onSubmit={handleSubmit} method="POST">
-                {items.map((item) => (
-                    <Grid item className='contentBlock' style={{ margin: 'auto', width: '500px', backgroundColor: 'whitesmoke' }}>
+            <form onSubmit={handleSubmit} method="POST" style={{ width: '500px', margin: 'auto' }}>
+                {items.map((item, i) => (
+                    <Grid key={i} item className='contentBlock' style={{ margin: 'auto', width: '500px', backgroundColor: 'whitesmoke' }}>
                         <Paper className="paper" style={{ display: "flex", backgroundColor: 'whitesmoke' }}>
                             <li><img src={'/imgs/' + item.picture + '.jpg'} alt={item.name + ' picture'} className="picture" style={{ width: '100px', height: '100px', margin: 'auto' }} /></li>
                             <li className="productName" style={{ margin: 'auto' }}>{item.name}</li>
@@ -116,6 +124,7 @@ export function Order() {
                         </Paper>
                     </Grid>
                 ))}
+                <h3 style={{ float: 'right' }}>Сумма: {price} грн</h3>
                 <Grid container alignItems="center" justify="center" direction="column" style={{ backgroundColor: 'whitesmoke' }}>
                     <Grid item>
                         <TextField
@@ -167,8 +176,8 @@ export function Order() {
                                 }}
                             >
                                 <option aria-label="None" value="" />
-                                {addresses.map((address) => (
-                                    <option value={address}>{address}</option>
+                                {addresses.map((address, i) => (
+                                    <option key={i} value={address}>{address}</option>
                                 ))}
                             </Select>
                         </FormControl>
@@ -215,6 +224,13 @@ export function Order() {
                     </Grid>
                 </Grid>
             </form>
+            <Dialog open={complete} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='body' fullWidth={true} maxWidth={'sm'}>
+                <DialogTitle id="form-dialog-title">Спасибо</DialogTitle>
+                <DialogContent>
+                    <Typography>Мы получили ваш заказ</Typography>
+                </DialogContent>
+                <Button onClick={handleClose} variant="contained" style={{ width: '100%', backgroundColor: 'green', margin: '10px 0 0' }} color="primary">Закрыть</Button>
+            </Dialog>
         </div>
     )
 }
