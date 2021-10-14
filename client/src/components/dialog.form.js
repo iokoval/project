@@ -6,12 +6,15 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import Badge from '@material-ui/core/Badge';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 export default function FormDialog() {
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState([]);
   const [update, setUpdate] = useState();
   const [price, setPrice] = useState(0);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     loadCart();
@@ -35,6 +38,7 @@ export default function FormDialog() {
         console.log(cartList);
         pr += cartList[t].price * cartList[t].quantity;
       }
+      setCount(cartList.length);
       setPrice(pr);
       setItems(cartList);
     }
@@ -107,9 +111,9 @@ export default function FormDialog() {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Корзина
-      </Button>
+      <Badge badgeContent={count} color="primary" onClick={handleClickOpen}>
+        <ShoppingBasketIcon />
+      </Badge>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='body' fullWidth={true} maxWidth={'sm'}>
         <DialogTitle id="form-dialog-title">Ваш заказ</DialogTitle>
         <DialogContent>
