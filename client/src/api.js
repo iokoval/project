@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: "http://localhost:4000/api",
+    baseURL: "http://3.136.40.229:4000/api",
 })
 // products
 export const insertProduct = payload => api.post('/product', payload);
