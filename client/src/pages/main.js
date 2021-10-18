@@ -48,7 +48,7 @@ export class MainPage extends React.Component {
                     </div>
                 </div>
                 <div id="portfolio">
-                    <h1>Каталог</h1>
+                    <h1>Каталог товаров!</h1>
                     <div id="portfolioContent">
                         <div id="content">
                             <figure className="figure">
